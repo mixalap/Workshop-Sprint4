@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% comment %} {% extends 'notes/base_note.html' %} {% endcomment %}
+{% block title %} Create note using function {% endblock %}
+{% block content %}
+    <form method="post" action="{% url 'notes:new_note_2' %}"
+        
+        <p>
+            <label for="id_name">Name:</label>
+            <input type="text" name="name" maxlength="50" id="id_name">
+        </p>
+        <p>
+            <label for="id_text">Text:</label>
+            <textarea name="text" cols="40" rows="10" maxlength="300" id="id_text"></textarea>
+        </p>
+        <p>
+            <label for="id_publish">Publish:</label>
+            <input type="checkbox" name="publish" id="id_publish"
+        </p>
+        {% csrf_token %}
+        <input type="submit" value="Create">
+    </form>
+
+{% endblock %}
