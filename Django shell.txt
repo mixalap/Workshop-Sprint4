@@ -1,0 +1,19 @@
+Потренироваться в Django shell с обращением к моделям данных.
+
+# python manage.py shell -i ipython
+
+
+from posts.models import Post, User, Group
+posts = Post.objects.order_by('-pub_date')
+
+posts_with_group = [p for p in posts if p.group]
+
+posts_with_group[0].group
+
+
+groups = Group.objects.all()
+this_group = groups[0]
+this_group.posts.all()
+
+this_group.post_set.all()
+
